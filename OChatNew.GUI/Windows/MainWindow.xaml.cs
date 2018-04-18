@@ -22,16 +22,20 @@ namespace OChatNew.GUI
         private bool _windowClosedWithButton = false;
         private bool _windowClosed = false;
 
-        private IDictionary<int, Brush> _userColors = new Dictionary<int, Brush>
+        private int lastColorIndexUsed = 0;
+
+        private IDictionary<int, Brush> colorCollection = new Dictionary<int, Brush>
         {
-            {1, Brushes.Coral },
-            {2, Brushes.ForestGreen },
-            {3, Brushes.CornflowerBlue },
-            {4, Brushes.Cyan },
-            {5, Brushes.MediumPurple },
-            {6, Brushes.Teal },
-            {7, Brushes.RosyBrown }
+            {0, Brushes.CornflowerBlue},
+            {1, Brushes.OrangeRed },
+            {2, Brushes.DarkSeaGreen },
+            {3, Brushes.Cyan },
+            {4, Brushes.MediumPurple },
+            {5, Brushes.Teal },
+            {6, Brushes.RosyBrown }
         };
+
+        private IDictionary<string, Brush> _userColorCollection = new Dictionary<string, Brush>();
 
         public MainWindow(TcpClient client, string userName)
         {
@@ -48,10 +52,16 @@ namespace OChatNew.GUI
 
             StartReaderThread();
             _writer.Write("USERWENTONLINE:" + _userName);
+            BindUserToColor(_userName);
+        }
+
+        public void BindUserToColor(string userName)
+        {
+            _userColorCollection.Add(userName, colorCollection[lastColorIndexUsed % 6]);
+            lastColorIndexUsed++;
         }
 
         #region Reading
-
         private void StartReaderThread()
         {
             var backGroundWorker = new BackgroundWorker
@@ -104,6 +114,7 @@ namespace OChatNew.GUI
                         if (user != _userName && user != string.Empty)
                         {
                             _currentOnlineClients.Add(user);
+                            BindUserToColor(user);
                         }
                     }
                     DtGrdOnlineUsers.ItemsSource = _currentOnlineClients;
@@ -113,7 +124,7 @@ namespace OChatNew.GUI
 
                 case "USERWENTOFFLINE":
                     var tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                    tr.Text = "Server [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[1] + " went offline";
+                    tr.Text = "Server [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has disconnected";
                     tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.LightGoldenrodYellow);
 
                     _currentOnlineClients.Remove(receivedMessage.Split(':')[1]);
@@ -124,19 +135,22 @@ namespace OChatNew.GUI
 
                 case "USERWENTONLINE":
                     tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                    tr.Text = "Server [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[1] + " came online";
+                    tr.Text = "Server [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has connected";
                     tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.LightGoldenrodYellow);
 
                     _currentOnlineClients.Add(receivedMessage.Split(':')[1]);
                     DtGrdOnlineUsers.Items.Refresh();
+
+                    BindUserToColor(receivedMessage.Split(':')[1]);
 
                     MainChatBox.AppendText(Environment.NewLine);
                     break;
 
                 case "CONTENTMSG":
                     tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                    tr.Text = receivedMessage.Split(':')[1] + " [" + DateTime.Now.ToString("ddd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[2];
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.CornflowerBlue);
+                    tr.Text = receivedMessage.Split(':')[1] + " [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[2];
+                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[receivedMessage.Split(':')[1]]);
+
                     MainChatBox.AppendText(Environment.NewLine);
                     break;
             }
@@ -145,17 +159,6 @@ namespace OChatNew.GUI
         }
 
         #endregion Reading
-
-        private void BtnLogOut_Click(object sender, RoutedEventArgs e)
-        {
-            _windowClosed = true;
-            _windowClosedWithButton = true;
-            _writer.Write("USERWENTOFFLINE:" + _userName);
-
-            var login = new LoginWindow();
-            login.Show();
-            Close();
-        }
 
         /// <summary>
         /// Reads the clients input from the textbox, writes it into the richtext box and sends it to the server
@@ -168,13 +171,26 @@ namespace OChatNew.GUI
             {
                 var tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
                 tr.Text = _userName + " [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + TxtBoxEnter.Text;
-                tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.CornflowerBlue);
+                tr.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[_userName]);
+
                 MainChatBox.AppendText(Environment.NewLine);
                 MainChatBox.ScrollToEnd();
 
                 _writer.Write("CONTENTMSG:" + _userName + ":" + TxtBoxEnter.Text);
                 TxtBoxEnter.Clear();
             }
+        }
+
+        #region Closing
+        private void BtnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            _windowClosed = true;
+            _windowClosedWithButton = true;
+            _writer.Write("USERWENTOFFLINE:" + _userName);
+
+            var login = new LoginWindow();
+            login.Show();
+            Close();
         }
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -187,5 +203,6 @@ namespace OChatNew.GUI
                 login.Show();
             }
         }
+        #endregion
     }
 }

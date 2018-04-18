@@ -4,7 +4,7 @@
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       Title="OChat" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" ShowTitleBar="True" Closing="MainWindow_Closing">
     <Grid Height="500" Width="538">
-        <DataGrid ItemsSource="{Binding myList}" AlternatingRowBackground="LightSlateGray"  x:Name="DtGrdOnlineUsers" HorizontalScrollBarVisibility="Disabled" BorderThickness="0,0,0,0" RowHeaderWidth="0" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Left" Height="473" VerticalAlignment="Top" Width="101">
+        <DataGrid ItemsSource="{Binding myList}" x:Name="DtGrdOnlineUsers" HorizontalScrollBarVisibility="Disabled" BorderThickness="0,0,0,0" RowHeaderWidth="0" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Left" Height="473" VerticalAlignment="Top" Width="101">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="False" Binding="{Binding}" Header="Online" Width="*" />
             </DataGrid.Columns>

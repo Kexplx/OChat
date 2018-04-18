@@ -3,3 +3,4 @@ C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Co
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\obj\Debug\OChatNew.Core.csproj.CoreCompileInputs.cache
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\obj\Debug\OChatNew.Core.dll
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\obj\Debug\OChatNew.Core.pdb
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\obj\Debug\OChatNew.Core.csprojResolveAssemblyReference.cache
