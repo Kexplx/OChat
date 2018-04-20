@@ -1,0 +1,7 @@
+DO:
+- Farbige anzeige im Datagrid
+- einzigartige Namen 
+- usertippt etwas ein ...
+FIX:
+
+- client Tobi disconnected und reconnected mit gleichem Namen => crash des clients und verbuggte Anzeige im DataGrid
