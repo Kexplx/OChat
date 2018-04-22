@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\12775-200.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\iconChat.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -136,6 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\12775-200.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconChat.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
