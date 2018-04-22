@@ -1,7 +1,9 @@
 DO:
 - Farbige anzeige im Datagrid
 - einzigartige Namen 
-- usertippt etwas ein ...
+- user X tippt etwas ein ...
+- admin mode (erster user ist Admin, kann andere kicken) also erster User der joined, dann 2.ter etc...
+- bei window close (kreuz oben rechts) öffnet sich nicht mehr das login fenster
 FIX:
 
 - client Tobi disconnected und reconnected mit gleichem Namen => crash des clients und verbuggte Anzeige im DataGrid
