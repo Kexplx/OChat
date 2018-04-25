@@ -35,7 +35,7 @@ namespace OChatNew.Core.Connection.Server
         {
             var tcpListener = new TcpListener(IPAddress.Any, Port);
             tcpListener.Start();
-            System.Console.WriteLine("Listening to new connections...");
+            Console.WriteLine("Listening to new connections...");
 
             while (_serverAcceptsConnections)
             {

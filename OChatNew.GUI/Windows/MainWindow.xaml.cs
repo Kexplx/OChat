@@ -57,8 +57,15 @@ namespace OChatNew.GUI
 
         public void BindUserToColor(string userName)
         {
-            _userColorCollection.Add(userName, colorCollection[lastColorIndexUsed % 6]);
-            lastColorIndexUsed++;
+            try
+            {
+                _userColorCollection.Add(userName, colorCollection[lastColorIndexUsed % 6]);
+                lastColorIndexUsed++;
+            }
+            catch
+            {
+
+            }
         }
 
         #region Reading
@@ -83,12 +90,7 @@ namespace OChatNew.GUI
                 try
                 {
                     var receivedMessage = _reader.ReadString();
-                    if (receivedMessage == string.Empty)
-                    {
-                        continue;
-                    }
-
-                (sender as BackgroundWorker).ReportProgress(0, receivedMessage);
+                    (sender as BackgroundWorker).ReportProgress(0, receivedMessage);
                 }
                 catch
                 { }
@@ -199,8 +201,6 @@ namespace OChatNew.GUI
             if (!_windowClosedWithButton)
             {
                 _writer.Write("USERWENTOFFLINE:" + _userName);
-                var login = new LoginWindow();
-                login.Show();
             }
         }
         #endregion

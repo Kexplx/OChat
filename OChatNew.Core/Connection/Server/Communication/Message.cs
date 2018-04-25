@@ -53,6 +53,9 @@ namespace OChatNew.Core.Connection.Communication
                 case "ONLINEUSERS":
                     return MessageType.ONLINEUSERS;
 
+                case "CHECKNAME":
+                    return MessageType.CHECKNAME;
+
                 default:
                     return MessageType.ONLINEUSERS;
             }

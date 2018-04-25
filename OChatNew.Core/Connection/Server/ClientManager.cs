@@ -30,22 +30,18 @@ namespace OChatNew.Core.Connection.Server
 
         public void ReadClientStream()
         {
-            var binReader = new BinaryReader(TcpClient.GetStream());
+            var reader = new BinaryReader(TcpClient.GetStream());
             while (true)
             {
                 try
                 {
-                    var receivedMessage = binReader.ReadString();
-
-                    if (receivedMessage != String.Empty)
+                    var receivedMessage = reader.ReadString();
+                    EvaluateClientToServerMessage(new Message
                     {
-                        EvaluateClientToServerMessage(new Message
-                        {
-                            Username = receivedMessage.Split(':')[1],
-                            RawMessageContent = receivedMessage,
-                            TimeStamp = DateTime.Now,
-                        });
-                    }
+                        Username = receivedMessage.Split(':')[1],
+                        RawMessageContent = receivedMessage,
+                        TimeStamp = DateTime.Now,
+                    });
                 }
                 catch
                 { }
@@ -61,10 +57,15 @@ namespace OChatNew.Core.Connection.Server
                     TerminateObjectAndThread();
                     return;
 
-                case MessageType.USERWENTONLINE: //first message that will be sent
+                case MessageType.USERWENTONLINE:
                     SendMessageToClient("ONLINEUSERS:" + string.Join("|", HostServer.Clients.Select(x => x.UserName).ToArray()));
                     UserName = message.Username;
                     break;
+
+                case MessageType.CHECKNAME: //checks if username is available
+                    var isUserNameAvailable = !(HostServer.Clients.Where(x => x.UserName == message.RawMessageContent.Split(':')[1]).Count() == 1);
+                    SendMessageToClient("CHECKNAME:" + isUserNameAvailable.ToString());
+                    return;
             }
 
             SendMessageToClients(message.RawMessageContent);
