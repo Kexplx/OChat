@@ -4,3 +4,4 @@ C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_Play
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Debug\Socket_PlayGround.csproj.CoreCompileInputs.cache
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Debug\Socket_PlayGround.exe
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Debug\Socket_PlayGround.pdb
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Debug\Socket_PlayGround.csprojResolveAssemblyReference.cache

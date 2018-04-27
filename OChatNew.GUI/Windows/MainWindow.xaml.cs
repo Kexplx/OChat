@@ -24,6 +24,8 @@ namespace OChatNew.GUI
 
         private int lastColorIndexUsed = 0;
 
+        private IDictionary<string, Brush> _userColorCollection = new Dictionary<string, Brush>();
+
         private IDictionary<int, Brush> colorCollection = new Dictionary<int, Brush>
         {
             {0, Brushes.CornflowerBlue},
@@ -34,8 +36,6 @@ namespace OChatNew.GUI
             {5, Brushes.Teal },
             {6, Brushes.RosyBrown }
         };
-
-        private IDictionary<string, Brush> _userColorCollection = new Dictionary<string, Brush>();
 
         public MainWindow(TcpClient client, string userName)
         {
@@ -63,9 +63,7 @@ namespace OChatNew.GUI
                 lastColorIndexUsed++;
             }
             catch
-            {
-
-            }
+            { }
         }
 
         #region Reading
@@ -126,7 +124,7 @@ namespace OChatNew.GUI
 
                 case "USERWENTOFFLINE":
                     var tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                    tr.Text = "Server [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has disconnected";
+                    tr.Text = "Server  [" + DateTime.Now.ToString("HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has disconnected";
                     tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.LightGoldenrodYellow);
 
                     _currentOnlineClients.Remove(receivedMessage.Split(':')[1]);
@@ -137,7 +135,7 @@ namespace OChatNew.GUI
 
                 case "USERWENTONLINE":
                     tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                    tr.Text = "Server [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has connected";
+                    tr.Text = "Server  [" + DateTime.Now.ToString("HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has connected";
                     tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.LightGoldenrodYellow);
 
                     _currentOnlineClients.Add(receivedMessage.Split(':')[1]);
@@ -149,9 +147,17 @@ namespace OChatNew.GUI
                     break;
 
                 case "CONTENTMSG":
-                    tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                    tr.Text = receivedMessage.Split(':')[1] + " [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + receivedMessage.Split(':')[2];
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[receivedMessage.Split(':')[1]]);
+                    var userName = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
+                    userName.Text = receivedMessage.Split(':')[1];
+                    userName.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[receivedMessage.Split(':')[1]]);
+
+                    var date = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
+                    date.Text = "  " + DateTime.Now.ToString("[HH:mm]") + ": ";
+                    date.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Gray);
+
+                    var content = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
+                    content.Text = receivedMessage.Split(':')[2];
+                    content.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.White);
 
                     MainChatBox.AppendText(Environment.NewLine);
                     break;
@@ -159,7 +165,6 @@ namespace OChatNew.GUI
 
             MainChatBox.ScrollToEnd();
         }
-
         #endregion Reading
 
         /// <summary>
@@ -171,9 +176,17 @@ namespace OChatNew.GUI
         {
             if (e.Key == Key.Return)
             {
-                var tr = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                tr.Text = _userName + " [" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "]: " + TxtBoxEnter.Text;
-                tr.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[_userName]);
+                var userName = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
+                userName.Text = _userName;
+                userName.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[_userName]);
+
+                var date = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
+                date.Text = "  " + DateTime.Now.ToString("[HH:mm]") + ": ";
+                date.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Gray);
+
+                var content = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
+                content.Text = TxtBoxEnter.Text;
+                content.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.White);
 
                 MainChatBox.AppendText(Environment.NewLine);
                 MainChatBox.ScrollToEnd();

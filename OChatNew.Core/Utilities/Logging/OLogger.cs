@@ -163,7 +163,7 @@ namespace OChatNew.Core.Utilities.Logging
             switch (message.Type)
             {
                 case LogMessageType.INFO:
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(message.Message);
                     Console.ResetColor();
                     break;

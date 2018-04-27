@@ -1,0 +1,42 @@
+27.04.2018 16:53:03 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 16:53:03 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 16:53:03 INFO OChatNew.ConsoleApplication.Program - 
+27.04.2018 16:54:11 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 16:54:11 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 16:54:11 INFO OChatNew.ConsoleApplication.Program - 
+27.04.2018 16:54:19 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 16:54:19 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 16:59:36 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 16:59:37 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 16:59:37 INFO OChatNew.ConsoleApplication.Program - <?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+27.04.2018 17:00:25 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 17:00:25 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 17:00:25 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+27.04.2018 17:02:59 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 17:02:59 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 17:02:59 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+27.04.2018 17:03:04 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 17:03:04 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 17:03:04 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+27.04.2018 17:04:14 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+27.04.2018 17:04:14 INFO OChatNew.ConsoleApplication.Program - Using this config:
+27.04.2018 17:04:14 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
