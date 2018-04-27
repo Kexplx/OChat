@@ -7,4 +7,7 @@ DO:
 
 -CLIENT REFACTORN:
 	- redundanz bei den printlns...
+	
+-Unit tests..
+-Doc strings
 FIX:
