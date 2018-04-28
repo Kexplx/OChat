@@ -1,8 +1,10 @@
 ﻿using OChatNew.Core.Connection.Communication;
 using OChatNew.Core.Connection.Server.Communication;
+using OChatNew.Core.Utilities.Logging;
 using System;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
@@ -10,22 +12,17 @@ namespace OChatNew.Core.Connection.Server
 {
     public class ClientManager
     {
-        public TcpClient TcpClient
-        {
-            get;
-            set;
-        }
+        private OLogger _logger;
 
-        public string UserName
-        {
-            get;
-            set;
-        }
+        public TcpClient TcpClient { get; set; }
 
-        public Server HostServer
+        public string UserName { get; set; }
+
+        public Host HostServer { get; set; }
+
+        public ClientManager(OLogger logger)
         {
-            get;
-            set;
+            _logger = logger;
         }
 
         public void ReadClientStream()
@@ -100,6 +97,8 @@ namespace OChatNew.Core.Connection.Server
 
         public void TerminateObjectAndThread()
         {
+            _logger.Info(("TCP client: " + ((IPEndPoint)TcpClient.Client.RemoteEndPoint).Address.ToString()) + " has disconnected", GetType());
+
             HostServer.Clients.Remove(this);
             TcpClient.Close();
             TcpClient.Dispose();

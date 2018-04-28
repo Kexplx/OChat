@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Socket_PlayGround
 {
-    class Server
+    internal class Server
     {
         public void OpenServerForConnection(int port)
         {
@@ -28,7 +28,6 @@ namespace Socket_PlayGround
 
         public void WriteToStream(TcpClient client)
         {
-
         }
     }
 }

@@ -24,7 +24,6 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Username}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="39,157,0,0" VerticalAlignment="Top" Width="134" Height="143"/>
-
+        <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="39,157,0,0" VerticalAlignment="Top" Width="134" Height="143" />
     </Grid>
 </Window>

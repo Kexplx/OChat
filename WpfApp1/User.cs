@@ -2,7 +2,7 @@
 
 namespace WpfApp1
 {
-    class User
+    internal class User
     {
         public string Username
         {

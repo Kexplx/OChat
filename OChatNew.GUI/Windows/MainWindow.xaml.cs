@@ -32,7 +32,8 @@ namespace OChatNew.GUI
             {3, Brushes.Cyan },
             {4, Brushes.MediumPurple },
             {5, Brushes.Teal },
-            {6, Brushes.RosyBrown }
+            {6, Brushes.RosyBrown },
+            {7, Brushes.Tan }
         };
 
         public MainWindow(TcpClient client, string userName)
@@ -55,10 +56,11 @@ namespace OChatNew.GUI
         public Brush GetColorForUser()
         {
             lastColorIndexUsed++;
-            return colorCollection[lastColorIndexUsed % 6];
+            return colorCollection[lastColorIndexUsed % colorCollection.Count];
         }
 
         #region Reading
+
         private void StartReaderThread()
         {
             var backGroundWorker = new BackgroundWorker
@@ -154,6 +156,7 @@ namespace OChatNew.GUI
 
             MainChatBox.ScrollToEnd();
         }
+
         #endregion Reading
 
         /// <summary>
@@ -186,6 +189,7 @@ namespace OChatNew.GUI
         }
 
         #region Closing
+
         private void BtnLogOut_Click(object sender, RoutedEventArgs e)
         {
             _windowClosed = true;
@@ -205,6 +209,7 @@ namespace OChatNew.GUI
                 _writer.Write("USERWENTOFFLINE:" + _thisClient.Name);
             }
         }
-        #endregion
+
+        #endregion Closing
     }
 }

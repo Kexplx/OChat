@@ -103,3 +103,30 @@
 <OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Port>8080</Port>
 </OChatConfiguration>
+28.04.2018 20:55:08 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+28.04.2018 20:55:08 INFO OChatNew.ConsoleApplication.Program - Using this config:
+28.04.2018 20:55:08 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+28.04.2018 20:55:08 INFO OChatNew.Core.Connection.Server.Server - Started listening to new connections on port: 8080
+28.04.2018 20:55:18 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+28.04.2018 20:55:18 INFO OChatNew.ConsoleApplication.Program - Using this config:
+28.04.2018 20:55:18 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+28.04.2018 20:55:24 INFO OChatNew.Core.Connection.Server.Server - TCP client: 127.0.0.1 has connected
+28.04.2018 20:56:55 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+28.04.2018 20:56:55 INFO OChatNew.ConsoleApplication.Program - Using this config:
+28.04.2018 20:56:55 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+28.04.2018 20:56:55 INFO OChatNew.Core.Connection.Server.Host - Started listening to new connections on port: 8080
+28.04.2018 20:57:00 INFO OChatNew.Core.Connection.Server.Host - TCP client: 127.0.0.1 has connected
+28.04.2018 20:57:06 INFO OChatNew.Core.Connection.Server.Host - TCP client: 127.0.0.1 has connected
+28.04.2018 20:57:13 INFO OChatNew.Core.Connection.Server.ClientManager - TCP client: 127.0.0.1 has disconnected

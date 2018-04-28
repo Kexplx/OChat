@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OChatNew.Core", "OChatNew.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OChatNew.ConsoleApplication", "OChatNew.ConsoleApplication\OChatNew.ConsoleApplication.csproj", "{3B45C34B-2595-415C-846F-AE4DB42F92D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Socket_PlayGround", "Socket_PlayGround\Socket_PlayGround.csproj", "{CC6F7AC3-4619-4610-B3BE-81B1B893E674}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{467D2334-9723-4DDF-B82D-D8D1DDD2B489}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,22 +41,6 @@ Global
 		{3B45C34B-2595-415C-846F-AE4DB42F92D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B45C34B-2595-415C-846F-AE4DB42F92D0}.Release|x64.ActiveCfg = Release|x64
 		{3B45C34B-2595-415C-846F-AE4DB42F92D0}.Release|x64.Build.0 = Release|x64
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Debug|x64.Build.0 = Debug|Any CPU
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Release|x64.ActiveCfg = Release|Any CPU
-		{CC6F7AC3-4619-4610-B3BE-81B1B893E674}.Release|x64.Build.0 = Release|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Debug|x64.Build.0 = Debug|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Release|Any CPU.Build.0 = Release|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Release|x64.ActiveCfg = Release|Any CPU
-		{467D2334-9723-4DDF-B82D-D8D1DDD2B489}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
 
 namespace OChatNew.GUI
 {
-    class Client
+    internal class Client
     {
         public string Name
         {

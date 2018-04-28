@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OChatNew.Core\OChatNew.Core.csproj">
+      <Project>{69ce043d-ebab-4b75-8fb7-83ebfa3cec76}</Project>
+      <Name>OChatNew.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

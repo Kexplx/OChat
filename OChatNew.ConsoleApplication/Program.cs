@@ -6,17 +6,16 @@ namespace OChatNew.ConsoleApplication
 {
     internal class Program
     {
-        private static readonly OLogger _logger = new OLogger("OChat_Server.log", typeof(Program), true);
-
         private static void Main(string[] args)
         {
+            var logger = new OLogger("OChat_Server.log", true);
             var configTuple = new XmlSerialization().DeserializeConfig();
 
-            _logger.Info("OChat Server application started");
-            _logger.Info("Using this config:");
-            _logger.Info("\n" +configTuple.Item2);
+            logger.Info("OChat Server application started", typeof(Program));
+            logger.Info("Using this config:", typeof(Program));
+            logger.Info("\n" + configTuple.Item2, typeof(Program));
 
-            new Server(configTuple.Item1.Port).OpenServerForConnection();
+            new Host(configTuple.Item1.Port, logger).OpenServerForConnection();
         }
     }
 }

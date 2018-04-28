@@ -1,4 +1,4 @@
-﻿using System;
+﻿using OChatNew.Core.Utilities.Logging;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
@@ -6,25 +6,17 @@ using System.Threading;
 
 namespace OChatNew.Core.Connection.Server
 {
-    public class Server
+    public class Host
     {
-        public List<ClientManager> Clients
-        {
-            get;
-            set;
-        }
+        private readonly int _port;
+        private OLogger _logger;
+        public List<ClientManager> Clients { get; set; }
 
-        public int Port
+        public Host(int port, OLogger logger)
         {
-            get;
-            set;
-        }
+            _logger = logger;
 
-        private bool _serverAcceptsConnections = true;
-
-        public Server(int port)
-        {
-            Port = port;
+            _port = port;
             Clients = new List<ClientManager>();
         }
 
@@ -33,18 +25,18 @@ namespace OChatNew.Core.Connection.Server
         /// </summary>
         public void OpenServerForConnection()
         {
-            var tcpListener = new TcpListener(IPAddress.Any, Port);
+            var tcpListener = new TcpListener(IPAddress.Any, _port);
             tcpListener.Start();
-            Console.WriteLine("Listening to new connections...");
+            _logger.Info("Started listening to new connections on port: " + _port, GetType());
 
-            while (_serverAcceptsConnections)
+            while (true)
             {
                 var tcpClient = tcpListener.AcceptTcpClient();
+                var clientIPv4Adress = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString();
 
-                var clientIPv4 = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString();
-                Console.WriteLine($"Client: {clientIPv4} has connected!");
+                _logger.Info($"TCP client: {clientIPv4Adress} has connected", GetType());
 
-                var client = new ClientManager
+                var client = new ClientManager(_logger)
                 {
                     TcpClient = tcpClient,
                     HostServer = this,
