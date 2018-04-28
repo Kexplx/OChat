@@ -1,0 +1,15 @@
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\bin\Debug\wpf playground.exe.config
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\bin\Debug\wpf playground.exe
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\bin\Debug\wpf playground.pdb
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground.csprojResolveAssemblyReference.cache
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\MainWindow.g.cs
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\App.g.cs
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground_MarkupCompile.cache
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground_MarkupCompile.lref
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\MainWindow.baml
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground.g.resources
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf_playground.Properties.Resources.resources
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground.csproj.GenerateResource.cache
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground.csproj.CoreCompileInputs.cache
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground.exe
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\wpf playground\obj\Debug\wpf playground.pdb

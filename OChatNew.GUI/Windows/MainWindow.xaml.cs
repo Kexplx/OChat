@@ -16,15 +16,13 @@ namespace OChatNew.GUI
     {
         private BinaryReader _reader;
         private BinaryWriter _writer;
-        private List<string> _currentOnlineClients = new List<string>();
-        private string _userName;
+        private List<Client> _currentOnlineClients = new List<Client>();
+        private Client _thisClient;
 
         private bool _windowClosedWithButton = false;
         private bool _windowClosed = false;
 
-        private int lastColorIndexUsed = 0;
-
-        private IDictionary<string, Brush> _userColorCollection = new Dictionary<string, Brush>();
+        private int lastColorIndexUsed = -1;
 
         private IDictionary<int, Brush> colorCollection = new Dictionary<int, Brush>
         {
@@ -41,29 +39,23 @@ namespace OChatNew.GUI
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            _userName = userName;
-            _currentOnlineClients.Add(_userName + " (You)");
+
+            _thisClient = new Client { Name = userName, Color = GetColorForUser() };
+            DtGrdOnlineUsers.ItemsSource = _currentOnlineClients;
+
+            _currentOnlineClients.Add(_thisClient);
 
             _reader = new BinaryReader(client.GetStream());
             _writer = new BinaryWriter(client.GetStream());
-            DtGrdOnlineUsers.ItemsSource = _currentOnlineClients;
-
-            DtGrdOnlineUsers.ItemsSource = _currentOnlineClients;
 
             StartReaderThread();
-            _writer.Write("USERWENTONLINE:" + _userName);
-            BindUserToColor(_userName);
+            _writer.Write("USERWENTONLINE:" + _thisClient.Name);
         }
 
-        public void BindUserToColor(string userName)
+        public Brush GetColorForUser()
         {
-            try
-            {
-                _userColorCollection.Add(userName, colorCollection[lastColorIndexUsed % 6]);
-                lastColorIndexUsed++;
-            }
-            catch
-            { }
+            lastColorIndexUsed++;
+            return colorCollection[lastColorIndexUsed % 6];
         }
 
         #region Reading
@@ -111,10 +103,9 @@ namespace OChatNew.GUI
 
                     foreach (var user in onlineUsers)
                     {
-                        if (user != _userName && user != string.Empty)
+                        if (user != _thisClient.Name && user != string.Empty)
                         {
-                            _currentOnlineClients.Add(user);
-                            BindUserToColor(user);
+                            _currentOnlineClients.Add(new Client { Name = user, Color = GetColorForUser() });
                         }
                     }
                     DtGrdOnlineUsers.ItemsSource = _currentOnlineClients;
@@ -127,7 +118,7 @@ namespace OChatNew.GUI
                     tr.Text = "Server  [" + DateTime.Now.ToString("HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has disconnected";
                     tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.LightGoldenrodYellow);
 
-                    _currentOnlineClients.Remove(receivedMessage.Split(':')[1]);
+                    _currentOnlineClients.RemoveAll(x => x.Name == receivedMessage.Split(':')[1]);
                     DtGrdOnlineUsers.Items.Refresh();
 
                     MainChatBox.AppendText(Environment.NewLine);
@@ -138,10 +129,8 @@ namespace OChatNew.GUI
                     tr.Text = "Server  [" + DateTime.Now.ToString("HH:mm") + "]: " + receivedMessage.Split(':')[1] + " has connected";
                     tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.LightGoldenrodYellow);
 
-                    _currentOnlineClients.Add(receivedMessage.Split(':')[1]);
+                    _currentOnlineClients.Add(new Client { Name = receivedMessage.Split(':')[1], Color = GetColorForUser() });
                     DtGrdOnlineUsers.Items.Refresh();
-
-                    BindUserToColor(receivedMessage.Split(':')[1]);
 
                     MainChatBox.AppendText(Environment.NewLine);
                     break;
@@ -149,7 +138,7 @@ namespace OChatNew.GUI
                 case "CONTENTMSG":
                     var userName = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
                     userName.Text = receivedMessage.Split(':')[1];
-                    userName.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[receivedMessage.Split(':')[1]]);
+                    userName.ApplyPropertyValue(TextElement.ForegroundProperty, _currentOnlineClients.Where(x => x.Name == receivedMessage.Split(':')[1]).First().Color);
 
                     var date = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
                     date.Text = "  " + DateTime.Now.ToString("[HH:mm]") + ": ";
@@ -177,8 +166,8 @@ namespace OChatNew.GUI
             if (e.Key == Key.Return)
             {
                 var userName = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
-                userName.Text = _userName;
-                userName.ApplyPropertyValue(TextElement.ForegroundProperty, _userColorCollection[_userName]);
+                userName.Text = _thisClient.Name;
+                userName.ApplyPropertyValue(TextElement.ForegroundProperty, _currentOnlineClients.Where(x => x.Name == _thisClient.Name).First().Color);
 
                 var date = new TextRange(MainChatBox.Document.ContentEnd, MainChatBox.Document.ContentEnd);
                 date.Text = "  " + DateTime.Now.ToString("[HH:mm]") + ": ";
@@ -191,7 +180,7 @@ namespace OChatNew.GUI
                 MainChatBox.AppendText(Environment.NewLine);
                 MainChatBox.ScrollToEnd();
 
-                _writer.Write("CONTENTMSG:" + _userName + ":" + TxtBoxEnter.Text);
+                _writer.Write("CONTENTMSG:" + _thisClient.Name + ":" + TxtBoxEnter.Text);
                 TxtBoxEnter.Clear();
             }
         }
@@ -201,7 +190,7 @@ namespace OChatNew.GUI
         {
             _windowClosed = true;
             _windowClosedWithButton = true;
-            _writer.Write("USERWENTOFFLINE:" + _userName);
+            _writer.Write("USERWENTOFFLINE:" + _thisClient.Name);
 
             var login = new LoginWindow();
             login.Show();
@@ -213,7 +202,7 @@ namespace OChatNew.GUI
             _windowClosed = true;
             if (!_windowClosedWithButton)
             {
-                _writer.Write("USERWENTOFFLINE:" + _userName);
+                _writer.Write("USERWENTOFFLINE:" + _thisClient.Name);
             }
         }
         #endregion

@@ -5,8 +5,35 @@
                       Title="OChat" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" ShowTitleBar="True" Closing="MainWindow_Closing">
     <Grid Height="500" Width="538">
         <DataGrid ItemsSource="{Binding myList}" x:Name="DtGrdOnlineUsers" HorizontalScrollBarVisibility="Disabled" BorderThickness="0,0,0,0" RowHeaderWidth="0" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Left" Height="473" VerticalAlignment="Top" Width="101">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Color}" Value="CornflowerBlue">
+                            <Setter Property="Foreground" Value="CornflowerBlue"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="OrangeRed">
+                            <Setter Property="Foreground" Value="OrangeRed"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="DarkSeaGreen">
+                            <Setter Property="Foreground" Value="DarkSeaGreen"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="Cyan">
+                            <Setter Property="Foreground" Value="Cyan"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="MediumPurple">
+                            <Setter Property="Foreground" Value="MediumPurple"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="Teal">
+                            <Setter Property="Foreground" Value="Teal"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="RosyBrown">
+                            <Setter Property="Foreground" Value="RosyBrown"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="False" Binding="{Binding}" Header="Online" Width="*" />
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding Name}" Header="Online" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
         <Border Name="Brd1" BorderBrush="LightGray" BorderThickness="2,3,1,0" Margin="100,24,0,36">

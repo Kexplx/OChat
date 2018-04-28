@@ -1,8 +1,6 @@
 DO:
-- Farbige anzeige im Datagrid
 - user X tippt etwas ein ...
 - admin mode (erster user ist Admin, kann andere kicken) also erster User der joined, dann 2.ter etc...
-- bei window close (kreuz oben rechts) öffnet sich nicht mehr das login fenster
 - logging im server
 
 -CLIENT REFACTORN:
