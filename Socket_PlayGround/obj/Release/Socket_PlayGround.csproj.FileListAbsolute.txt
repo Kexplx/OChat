@@ -1,7 +1,0 @@
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\bin\Release\Socket_PlayGround.exe.config
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\bin\Release\Socket_PlayGround.exe
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\bin\Release\Socket_PlayGround.pdb
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Release\Socket_PlayGround.csprojResolveAssemblyReference.cache
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Release\Socket_PlayGround.csproj.CoreCompileInputs.cache
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Release\Socket_PlayGround.exe
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\Socket_PlayGround\obj\Release\Socket_PlayGround.pdb
