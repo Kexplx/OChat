@@ -16,13 +16,22 @@ namespace OChatNew.ConsoleApplication.Configuration
 
         public void SerializeConfig(OChatConfiguration config)
         {
-            _serializer.Serialize(File.Open(_file, FileMode.OpenOrCreate), config);
+            using (var stream = File.Open(_file, FileMode.OpenOrCreate))
+            {
+                _serializer.Serialize(stream, config);
+            }
         }
 
         public Tuple<OChatConfiguration, string> DeserializeConfig()
         {
             OChatConfiguration config;
-            using (var stream = File.OpenRead(_file))
+
+            if (!File.Exists(_file))
+            {
+                SerializeConfig(new OChatConfiguration { Port = 8080 });
+            }
+
+            using (var stream = File.Open(_file, FileMode.OpenOrCreate))
             {
                 config = (OChatConfiguration)_serializer.Deserialize(stream);
             }

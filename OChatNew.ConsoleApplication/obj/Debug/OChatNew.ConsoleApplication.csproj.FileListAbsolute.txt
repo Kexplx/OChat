@@ -3,8 +3,8 @@ C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Co
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\bin\Debug\OChatNew.ConsoleApplication.pdb
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\bin\Debug\OChatNew.Core.dll
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\bin\Debug\OChatNew.Core.pdb
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\obj\Debug\OChatNew.ConsoleApplication.csprojResolveAssemblyReference.cache
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\obj\Debug\OChatNew.ConsoleApplication.csproj.CoreCompileInputs.cache
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\obj\Debug\OChatNew.ConsoleApplication.csproj.CopyComplete
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\obj\Debug\OChatNew.ConsoleApplication.exe
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\obj\Debug\OChatNew.ConsoleApplication.pdb
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.ConsoleApplication\obj\Debug\OChatNew.ConsoleApplication.csprojAssemblyReference.cache

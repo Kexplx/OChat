@@ -39,18 +39,7 @@ namespace OChatNew.Core.Utilities.Logging
         /// <returns></returns>
         public LogInformation Info(string message, Type loggedFromThisClassType)
         {
-            Monitor.Enter(_lock);
-            var logInformation = new LogInformation
-            {
-                Message = DateTime.Now.ToString() + " INFO " + loggedFromThisClassType.FullName + " - " + message,
-                Type = LogMessageType.INFO
-            };
-
-            File.AppendAllText(_path, logInformation.Message + Environment.NewLine);
-            WriteToConsole(logInformation);
-
-            Monitor.Exit(_lock);
-            return logInformation;
+            return LogTheMessage(message, loggedFromThisClassType, LogMessageType.INFO);
         }
 
         /// <summary>
@@ -61,19 +50,7 @@ namespace OChatNew.Core.Utilities.Logging
         /// <returns></returns>
         public LogInformation Error(string message, Type loggedFromThisClassType)
         {
-            Monitor.Enter(_lock);
-
-            var logInformation = new LogInformation
-            {
-                Message = DateTime.Now.ToString() + " ERROR " + loggedFromThisClassType.FullName + " - " + message,
-                Type = LogMessageType.ERROR
-            };
-
-            File.AppendAllText(_path, logInformation.Message + Environment.NewLine);
-            WriteToConsole(logInformation);
-
-            Monitor.Exit(_lock);
-            return logInformation;
+            return LogTheMessage(message, loggedFromThisClassType, LogMessageType.ERROR);
         }
 
         /// <summary>
@@ -84,18 +61,7 @@ namespace OChatNew.Core.Utilities.Logging
         /// <returns></returns>
         public LogInformation Warn(string message, Type loggedFromThisClassType)
         {
-            Monitor.Enter(_lock);
-            var logInformation = new LogInformation
-            {
-                Message = DateTime.Now.ToString() + " WARNING " + loggedFromThisClassType.FullName + " - " + message,
-                Type = LogMessageType.WARNING
-            };
-
-            File.AppendAllText(_path, logInformation.Message + Environment.NewLine);
-            WriteToConsole(logInformation);
-
-            Monitor.Exit(_lock);
-            return logInformation;
+            return LogTheMessage(message, loggedFromThisClassType, LogMessageType.WARNING);
         }
 
         /// <summary>
@@ -106,18 +72,7 @@ namespace OChatNew.Core.Utilities.Logging
         /// <returns></returns>
         public LogInformation Fatal(string message, Type loggedFromThisClassType)
         {
-            Monitor.Enter(_lock);
-            var logInformation = new LogInformation
-            {
-                Message = DateTime.Now.ToString() + " FATAL " + loggedFromThisClassType.FullName + " - " + message,
-                Type = LogMessageType.FATAL
-            };
-
-            File.AppendAllText(_path, logInformation.Message + Environment.NewLine);
-            WriteToConsole(logInformation);
-
-            Monitor.Exit(_lock);
-            return logInformation;
+            return LogTheMessage(message, loggedFromThisClassType, LogMessageType.FATAL);
         }
 
         /// <summary>
@@ -128,18 +83,7 @@ namespace OChatNew.Core.Utilities.Logging
         /// <returns></returns>
         public LogInformation FinalInfo(string message, Type loggedFromThisClassType)
         {
-            Monitor.Enter(_lock);
-            var logInformation = new LogInformation
-            {
-                Message = DateTime.Now.ToString() + " FINALINFO " + loggedFromThisClassType.FullName + " - " + message,
-                Type = LogMessageType.FINALINFO
-            };
-
-            File.AppendAllText(_path, logInformation.Message + Environment.NewLine);
-            WriteToConsole(logInformation);
-
-            Monitor.Exit(_lock);
-            return logInformation;
+            return LogTheMessage(message, loggedFromThisClassType, LogMessageType.FINALINFO);
         }
 
         /// <summary>
@@ -150,12 +94,64 @@ namespace OChatNew.Core.Utilities.Logging
         /// <returns></returns>
         public LogInformation CancelInfo(string message, Type loggedFromThisClassType)
         {
+            return LogTheMessage(message, loggedFromThisClassType, LogMessageType.CANCELINFO);
+        }
+
+        private LogInformation LogTheMessage(string message, Type loggedFromThisClassType, LogMessageType type)
+        {
             Monitor.Enter(_lock);
-            var logInformation = new LogInformation
+            LogInformation logInformation = null;
+
+            switch (type)
             {
-                Message = DateTime.Now.ToString() + " CANCELINFO " + loggedFromThisClassType.FullName + " - " + message,
-                Type = LogMessageType.CANCELINFO
-            };
+                case LogMessageType.WARNING:
+                    logInformation = new LogInformation
+                    {
+                        Message = DateTime.Now.ToString() + " WARNING " + loggedFromThisClassType.FullName + " - " + message,
+                        Type = LogMessageType.WARNING
+                    };
+                    break;
+
+                case LogMessageType.ERROR:
+                    logInformation = new LogInformation
+                    {
+                        Message = DateTime.Now.ToString() + " ERROR " + loggedFromThisClassType.FullName + " - " + message,
+                        Type = LogMessageType.ERROR
+                    };
+                    break;
+
+                case LogMessageType.INFO:
+                    logInformation = new LogInformation
+                    {
+                        Message = DateTime.Now.ToString() + " INFO " + loggedFromThisClassType.FullName + " - " + message,
+                        Type = LogMessageType.INFO
+                    };
+                    break;
+
+                case LogMessageType.FATAL:
+                    logInformation = new LogInformation
+                    {
+                        Message = DateTime.Now.ToString() + " FATAL " + loggedFromThisClassType.FullName + " - " + message,
+                        Type = LogMessageType.FATAL
+                    };
+                    break;
+
+                case LogMessageType.FINALINFO:
+                    logInformation = new LogInformation
+                    {
+                        Message = DateTime.Now.ToString() + " FINALINFO " + loggedFromThisClassType.FullName + " - " + message,
+                        Type = LogMessageType.FINALINFO
+                    };
+                    break;
+
+                case LogMessageType.CANCELINFO:
+                    logInformation = new LogInformation
+                    {
+                        Message = DateTime.Now.ToString() + " CANCELINFO " + loggedFromThisClassType.FullName + " - " + message,
+                        Type = LogMessageType.CANCELINFO
+                    };
+                    break;
+            }
 
             File.AppendAllText(_path, logInformation.Message + Environment.NewLine);
             WriteToConsole(logInformation);

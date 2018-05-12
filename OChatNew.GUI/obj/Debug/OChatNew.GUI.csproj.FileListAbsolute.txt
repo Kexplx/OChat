@@ -22,4 +22,4 @@ C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GU
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Debug\OChatNew.GUI.csproj.CopyComplete
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Debug\OChatNew.GUI.exe
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Debug\OChatNew.GUI.pdb
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Debug\OChatNew.GUI.csprojResolveAssemblyReference.cache
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Debug\OChatNew.GUI.csprojAssemblyReference.cache

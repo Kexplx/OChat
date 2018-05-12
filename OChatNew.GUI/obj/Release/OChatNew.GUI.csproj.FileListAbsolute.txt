@@ -7,7 +7,6 @@ C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GU
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\bin\Release\ControlzEx.pdb
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\bin\Release\MahApps.Metro.pdb
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\bin\Release\MahApps.Metro.xml
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\OChatNew.GUI.csprojResolveAssemblyReference.cache
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\Windows\LoginWindow.baml
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\Windows\MainWindow.baml
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\Windows\LoginWindow.g.cs
@@ -23,3 +22,4 @@ C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GU
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\OChatNew.GUI.csproj.CopyComplete
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\OChatNew.GUI.exe
 C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\OChatNew.GUI.pdb
+C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.GUI\obj\Release\OChatNew.GUI.csprojAssemblyReference.cache
