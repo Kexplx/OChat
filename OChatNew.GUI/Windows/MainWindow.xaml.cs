@@ -1,5 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -12,7 +11,7 @@ using System.Windows.Media;
 
 namespace OChatNew.GUI
 {
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow
     {
         private BinaryReader _reader;
         private BinaryWriter _writer;
@@ -196,7 +195,7 @@ namespace OChatNew.GUI
             _windowClosedWithButton = true;
             _writer.Write("USERWENTOFFLINE:" + _thisClient.Name);
 
-            var login = new LoginWindow();
+            var login = new Login();
             login.Show();
             Close();
         }

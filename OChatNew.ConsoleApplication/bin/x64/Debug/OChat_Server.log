@@ -1165,3 +1165,15 @@
   <Port>8080</Port>
 </OChatConfiguration>
 12.05.2018 21:45:04 INFO OChatNew.Core.Connection.Server.Host - Started listening to new connections on port: 8080
+18.08.2018 17:26:20 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
+18.08.2018 17:26:20 INFO OChatNew.ConsoleApplication.Program - Using this config:
+18.08.2018 17:26:20 INFO OChatNew.ConsoleApplication.Program - 
+<?xml version="1.0"?>
+<OChatConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Port>8080</Port>
+</OChatConfiguration>
+18.08.2018 17:26:20 INFO OChatNew.Core.Connection.Server.Host - Started listening to new connections on port: 8080
+18.08.2018 17:26:38 INFO OChatNew.Core.Connection.Server.Host - TCP client: 127.0.0.1 has connected
+18.08.2018 17:26:43 INFO OChatNew.Core.Connection.Server.Host - TCP client: 127.0.0.1 has connected
+18.08.2018 17:26:48 INFO OChatNew.Core.Connection.Server.ClientManager - TCP client: 127.0.0.1 has disconnected
+18.08.2018 17:26:49 INFO OChatNew.Core.Connection.Server.ClientManager - TCP client: 127.0.0.1 has disconnected

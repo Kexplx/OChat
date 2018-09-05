@@ -1,6 +1,6 @@
 ﻿using OChatNew.ConsoleApplication.Configuration;
-using OChatNew.Core.Connection.Server;
 using OChatNew.Core.Utilities.Logging;
+using OChatNew.Core.Connection;
 
 namespace OChatNew.ConsoleApplication
 {
@@ -15,7 +15,7 @@ namespace OChatNew.ConsoleApplication
             logger.Info("Using this config:", typeof(Program));
             logger.Info("\n" + configTuple.Item2, typeof(Program));
 
-            new Host(configTuple.Item1.Port, logger).OpenServerForConnection();
+            new Server(configTuple.Item1.Port, logger).OpenServerForConnection();
         }
     }
 }
