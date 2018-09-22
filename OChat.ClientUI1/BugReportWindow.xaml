@@ -1,0 +1,52 @@
+﻿<Window x:Class="OChat.ClientUI1.BugReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+                      Title="OChat - Join the Fun"
+                      BorderBrush="LightGray"
+                      ResizeMode="CanMinimize" 
+                      SizeToContent="WidthAndHeight" Background="LightGray"
+                      MouseDown="Window_MouseDown" FocusManager.FocusedElement="{Binding ElementName=TxtBugReportMessage}">
+    <Grid Width="312" Height="151" Background="WhiteSmoke">
+        <Border Margin="0,0,0,36" BorderBrush="DarkGray" BorderThickness="0,0,0,1">
+            <TextBox Name="TxtBugReportMessage" Background="White" Foreground="DimGray" CaretBrush="DimGray" BorderThickness="0" Margin="0"></TextBox>
+        </Border>
+        <TextBlock IsHitTestVisible="False" FontSize="15" Text="Please Describe the Bug in detail" HorizontalAlignment="Center"  Foreground="Gray" Width="216" Margin="48,47,48,83">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=TxtBugReportMessage}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Grid Background="GhostWhite" HorizontalAlignment="Left" Height="35" Margin="0,115,0,0" VerticalAlignment="Top" Width="312">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="86*"/>
+                <ColumnDefinition Width="227*"/>
+            </Grid.ColumnDefinitions>
+            <fa:ImageAwesome Icon="Send" Margin="191,5,5,5" Foreground="SteelBlue" MouseDown="imgSend_MouseDown" Cursor="Hand" Grid.Column="1" ToolTip="Report the Bug">
+                <fa:ImageAwesome.Style>
+                    <Style TargetType="{x:Type fa:ImageAwesome}">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Setter Property="Opacity" Value="1"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=TxtBugReportMessage}" Value="">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                                <Setter Property="Opacity" Value="0.6"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </fa:ImageAwesome.Style>
+            </fa:ImageAwesome>
+            <Label Grid.Column="0" Name="LblVersion" Visibility="Visible" Margin="1,13,45,1" HorizontalAlignment="Center" FontSize="10" Foreground="DimGray" Width="40"/>
+            <fa:ImageAwesome Name="SpinnerCog1" Visibility="Collapsed" Icon="Cog" Foreground="DimGray" Spin="True" SpinDuration="2" Grid.Column="1" Margin="162,5,35,5"></fa:ImageAwesome>
+        </Grid>
+    </Grid>
+</Window>

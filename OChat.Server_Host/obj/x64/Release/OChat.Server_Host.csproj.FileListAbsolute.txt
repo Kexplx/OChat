@@ -1,0 +1,12 @@
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\bin\x64\Release\OChat.Server_Host.exe.config
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\bin\x64\Release\OChat.Server_Host.exe
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\bin\x64\Release\OChat.Server_Host.pdb
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\bin\x64\Release\OChat.Core.dll
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\bin\x64\Release\OChat.Core.pdb
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\obj\x64\Release\OChat.Server_Host.csprojAssemblyReference.cache
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\obj\x64\Release\OChat.Server_Host.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\obj\x64\Release\OChat.Server_Host.csproj.CopyComplete
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\obj\x64\Release\OChat.Server_Host.exe
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\obj\x64\Release\OChat.Server_Host.pdb
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\obj\x64\Release\OChat.Server_Host.Properties.Resources.resources
+C:\Users\Oscar\source\repos\OChat\OChat.Server_Host\obj\x64\Release\OChat.Server_Host.csproj.GenerateResource.cache
