@@ -1,0 +1,5 @@
+C:\Users\Oscar\source\repos\OChat\OChat.Core\bin\Debug\OChat.Core.dll
+C:\Users\Oscar\source\repos\OChat\OChat.Core\bin\Debug\OChat.Core.pdb
+C:\Users\Oscar\source\repos\OChat\OChat.Core\obj\Debug\OChat.Core.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\source\repos\OChat\OChat.Core\obj\Debug\OChat.Core.dll
+C:\Users\Oscar\source\repos\OChat\OChat.Core\obj\Debug\OChat.Core.pdb

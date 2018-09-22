@@ -1,7 +1,0 @@
-12.05.2018 22:00:44 INFO OChatNew.ConsoleApplication.Program - OChat Server application started
-12.05.2018 22:00:44 INFO OChatNew.ConsoleApplication.Program - Using this config:
-12.05.2018 22:00:45 INFO OChatNew.ConsoleApplication.Program - 
-<?xml version="1.0"?>
-<OChatConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Port>8080</Port>
-</OChatConfiguration>

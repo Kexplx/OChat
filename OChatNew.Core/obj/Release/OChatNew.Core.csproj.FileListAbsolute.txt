@@ -1,5 +1,0 @@
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\bin\Release\OChatNew.Core.dll
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\bin\Release\OChatNew.Core.pdb
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\obj\Release\OChatNew.Core.csproj.CoreCompileInputs.cache
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\obj\Release\OChatNew.Core.dll
-C:\Users\Oscar Rosner\Documents\Visual Studio 2017\Projects\OChatNew\OChatNew.Core\obj\Release\OChatNew.Core.pdb
