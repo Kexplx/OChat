@@ -63,9 +63,9 @@ namespace OChat.ClientUI1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon chat {
+        internal static System.Drawing.Icon chat_1_ {
             get {
-                object obj = ResourceManager.GetObject("chat", resourceCulture);
+                object obj = ResourceManager.GetObject("chat_1_", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

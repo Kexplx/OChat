@@ -69,3 +69,5 @@
 20.09.2018 22:48:48 INFO OChat.Core.Communication.ServerSide.Server - Client connected with IPv4 Adress: 127.0.0.1
 20.09.2018 22:49:19 INFO OChat.Core.Communication.ServerSide.Server - Client disconnected with IPv4 Adress: 127.0.0.1
 20.09.2018 22:49:38 INFO OChat.Core.Communication.ServerSide.Server - Client disconnected with IPv4 Adress: 127.0.0.1
+25.09.2018 20:50:24 INFO OChat.Core.Communication.ServerSide.Server - Host of OChat Started. Listening for connections on port 8931...
+25.09.2018 20:50:31 INFO OChat.Core.Communication.ServerSide.Server - Client connected with IPv4 Adress: 127.0.0.1

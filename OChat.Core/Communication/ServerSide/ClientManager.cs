@@ -43,7 +43,7 @@ namespace OChat.Core.Communication.ServerSide
                     var desiredUsername = message.Substring(MessagePrefixes.PREFIX_LENGTH);
                     response = MessagePrefixes.SERVER_IS_USERNAME_AVAILABLE;
 
-                    if (_server.IsUsernameAvailable(desiredUsername))
+                    if (_server.CheckIfUsernameAvailable(desiredUsername))
                     {
                         response += "TRUE";
                     }

@@ -73,7 +73,7 @@ namespace OChat.Core.Communication.ServerSide
             }
         }
 
-        public bool IsUsernameAvailable(string username)
+        public bool CheckIfUsernameAvailable(string username)
         {
             lock (_monitor)
             {

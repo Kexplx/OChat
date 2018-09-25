@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Windows.Documents;
 using System.Windows.Media;
 using OChat.ClientUI1.ViewModels;
 using OChat.Core.Communication.ClientSide;
+using System.Windows.Input;
+using System.Threading;
 
 namespace OChat.ClientUI1
 {
@@ -19,12 +20,13 @@ namespace OChat.ClientUI1
         private int _lastColorCollectionIndexUsed = -1;
         private readonly IDictionary<int, Brush> _colorCollection = new Dictionary<int, Brush>
         {
-            {0, Brushes.SeaGreen},
-            {1, Brushes.SteelBlue },
-            {2, Brushes.MediumPurple },
-            {3, Brushes.Teal },
-            {4, Brushes.RosyBrown },
-            {5, Brushes.IndianRed },
+            {0, Brushes.SteelBlue },
+            {1, Brushes.IndianRed},
+            {2, Brushes.MediumSlateBlue},
+            {3, Brushes.RosyBrown},
+            {4, Brushes.SeaGreen },
+            {5, Brushes.MediumPurple},
+            {6, Brushes.DarkGoldenrod },
         };
 
         public ChatWindow(ClientServerMiddleman clientToServerMiddleman, string username)
@@ -41,7 +43,8 @@ namespace OChat.ClientUI1
                                                     .ToList();
             usersNames.Where(x => x.Name == username).First().FontWeight = "Bold";
 
-            ListBoxUsers.ItemsSource = usersNames;
+            ListBoxUsers.ItemsSource = usersNames.OrderBy(x => x.Name)
+                                                 .OrderByDescending(x => x.Name == _username).ToList();
 
             new Thread(() => clientToServerMiddleman.GetNewMessagesAndCallbackOnSpecifiedDelegates(ReceiveIncomingChatMessage,
                                                                                                    ReceiveUserConnectedToChatNotification,
@@ -125,7 +128,15 @@ namespace OChat.ClientUI1
             return _colorCollection[_lastColorCollectionIndexUsed % _colorCollection.Count];
         }
 
-        private void ImgLogout_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgBugReport_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            new BugReportWindow(Left, Top, Width)
+            {
+                Owner = this
+            }.Show();
+        }
+
+        private void ImgLogout_MouseDown(object sender, MouseButtonEventArgs e)
         {
             _clientServerMiddleman.DisconnectFromChatAndServer(_username);
 

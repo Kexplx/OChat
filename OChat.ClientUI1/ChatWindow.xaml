@@ -28,16 +28,16 @@
             </RichTextBox>
         </Border>
         <ListBox Grid.Row="0" x:Name="ListBoxUsers" ItemContainerStyle="{StaticResource ListBoxtemStyleNoHighlighting}" HorizontalContentAlignment="Stretch" 
-                 Margin="0,0,425,50" BorderBrush="DarkGray" BorderThickness="0,1,0,1" Background="GhostWhite">
+                 Margin="0,0,425,39" BorderBrush="DarkGray" BorderThickness="0,1,0,1" Background="GhostWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="LightGray" Margin="2,3,2,0" BorderThickness="0">
+                    <Border BorderBrush="DarkGray" Margin="2,3,2,0" BorderThickness="0,0,0,1">
                         <Grid Margin="0" Background="Transparent">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="15"/>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <fa:ImageAwesome Grid.Column="0" Height="20" Icon="User" Foreground="{Binding Color}"></fa:ImageAwesome>
+                            <fa:ImageAwesome Grid.Column="0" Height="20" Icon="UserCircle" Foreground="{Binding Color}"></fa:ImageAwesome>
                             <Label FontWeight="{Binding FontWeight}" FontSize="12" Grid.Column="1" HorizontalAlignment="Left" Content="{Binding Name}" Foreground="DimGray"/>
                         </Grid>
                     </Border>
@@ -61,7 +61,7 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <fa:ImageAwesome Name="ImgLogout" MouseDown="ImgLogout_MouseDown" Cursor="Hand" ToolTip="Logout" Icon="SignOut" Margin="16,558,446,8" RenderTransformOrigin="0.5,0.5" Foreground="IndianRed">
+        <fa:ImageAwesome Name="ImgLogout" MouseDown="ImgLogout_MouseDown" Cursor="Hand" ToolTip="Logout" Icon="SignOut" Margin="41,567,429,7" RenderTransformOrigin="0.5,0.5" Foreground="IndianRed">
             <fa:ImageAwesome.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -71,5 +71,6 @@
                 </TransformGroup>
             </fa:ImageAwesome.RenderTransform>
         </fa:ImageAwesome>
+        <fa:ImageAwesome x:Name="ImgBugReport" MouseDown="ImgBugReport_MouseDown" Cursor="Hand" ToolTip="Report a Bug" Icon="Bug" Margin="4,566,465,7" RenderTransformOrigin="0.803,-0.355" Foreground="MediumPurple" Opacity="0.9"/>
     </Grid>
 </Window>

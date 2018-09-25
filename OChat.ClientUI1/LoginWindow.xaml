@@ -14,7 +14,7 @@
                     <ColumnDefinition Width="227*"/>
                 </Grid.ColumnDefinitions>
                 <fa:ImageAwesome Name="ImgBeginLogin" MouseDown="ImgBeginLogin_MouseDown" ToolTip="Connect to Server" IsEnabled="False" Icon="SignIn" Margin="191,5,5,5" Foreground="SteelBlue" Opacity="0.6" Cursor="Hand" Grid.Column="1"></fa:ImageAwesome>
-                <fa:ImageAwesome Grid.Column="0" Name="ImgBugReport" MouseDown="ImgBugReport_MouseDown" Icon="Bug" Margin="5,5,55,5" Foreground="MediumPurple" ToolTip="Report a Bug" Cursor="Hand" RenderTransformOrigin="0.345,0.48"/>
+                <fa:ImageAwesome Grid.Column="0" Name="ImgBugReport" MouseDown="ImgBugReport_MouseDown" Icon="Bug" Margin="5,5,55,5" Foreground="MediumPurple" Opacity="0.9" ToolTip="Report a Bug" Cursor="Hand" RenderTransformOrigin="0.345,0.48"/>
                 <Label Grid.Column="0" Name="LblVersion" Visibility="Visible" Margin="30,13,21,1" HorizontalAlignment="Center" FontSize="10" Foreground="DimGray" Width="35"/>
                 <fa:ImageAwesome Grid.Column="0" Margin="35,5,23,5" Visibility="Collapsed" Foreground="DarkSeaGreen" ToolTip="New Version of OChat available, click to download!" Opacity="1" Cursor="Hand" RenderTransformOrigin="0.345,0.48">
                     <fa:ImageAwesome.Icon>Download</fa:ImageAwesome.Icon>
