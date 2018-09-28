@@ -5,15 +5,19 @@ using System.Threading;
 
 namespace ConsoleApp1
 {
-    class Program
+    internal class Program
     {
         private static IList<string> _sentences = new List<string>
             {
                 "Guten Tag, liebe Freunde!",
                 "Heute ist ein wundervoller Tag!",
+                "Ich komme aus Regensburg, das ist die Hauptstadt der Oberpfalz",
                 "Donald Trump ist der Präsident der USA",
                 "Dieses Programm wurde mit C# in Visual Studio 2017 entwickelt",
+                "Das Wort des Tages lautet: \"euphemistisch\"",
+                "Das Wort euphemistisch drückt aus, dass ein eher negativer Sachverhalt positiver und freundlicher dargestellt wird, als er wirklich ist",
                 "Langsam wird es Zeit für mich zu gehen",
+                "Vielen Dank für die gute Konversation",
                 "Auf Wiedersehn!"
             };
         static void Main(string[] args)
@@ -25,11 +29,17 @@ namespace ConsoleApp1
                 "Joris",
                 "Alex",
                 "Julia",
-                "Hildegard",
+                "Hilde",
                 "Tscharly",
                 "Martin",
                 "Paul",
-                "Jonas"
+                "Jonas",
+                "Martin",
+                "Marion",
+                "Simon",
+                "Peter",
+                "Anselm",
+                "Tilman"
             };
 
             for (int i = 0; i < usernames.Count; i++)

@@ -12,7 +12,6 @@ namespace OChat.ClientUI1
         public BugReportWindow(double loginWindowLeftMargin, double loginWindowTopMargin, double loginWindowWidth)
         {
             InitializeComponent();
-            LblVersion.Content = System.Configuration.ConfigurationManager.AppSettings["version"];
 
             //opens this window to the right of it's parent
             Left = loginWindowLeftMargin + loginWindowWidth - 10;

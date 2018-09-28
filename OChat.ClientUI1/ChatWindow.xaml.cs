@@ -18,15 +18,13 @@ namespace OChat.ClientUI1
         private readonly string _username;
 
         private int _lastColorCollectionIndexUsed = -1;
-        private readonly IDictionary<int, Brush> _colorCollection = new Dictionary<int, Brush>
+        private readonly IList<Brush> _userColors = new List<Brush>
         {
-            {0, Brushes.SteelBlue },
-            {1, Brushes.IndianRed},
-            {2, Brushes.MediumSlateBlue},
-            {3, Brushes.RosyBrown},
-            {4, Brushes.SeaGreen },
-            {5, Brushes.MediumPurple},
-            {6, Brushes.DarkGoldenrod },
+            Brushes.SlateGray,
+            Brushes.SteelBlue,
+            Brushes.MediumPurple,
+            Brushes.RosyBrown,
+            Brushes.CadetBlue,
         };
 
         public ChatWindow(ClientServerMiddleman clientToServerMiddleman, string username)
@@ -125,7 +123,7 @@ namespace OChat.ClientUI1
         private Brush GetNextBrushFromColorCollection()
         {
             _lastColorCollectionIndexUsed++;
-            return _colorCollection[_lastColorCollectionIndexUsed % _colorCollection.Count];
+            return _userColors[_lastColorCollectionIndexUsed % _userColors.Count];
         }
 
         private void ImgBugReport_MouseDown(object sender, MouseButtonEventArgs e)

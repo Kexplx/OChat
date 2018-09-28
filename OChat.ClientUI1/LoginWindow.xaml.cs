@@ -15,7 +15,6 @@ namespace OChat.ClientUI1
         public LoginWindow()
         {
             InitializeComponent();
-            LblVersion.Content = System.Configuration.ConfigurationManager.AppSettings["version"];
             _clientServerMiddleman = new ClientServerMiddleman();
         }
 

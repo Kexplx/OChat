@@ -19,7 +19,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid Height="600" Width="500" Background="GhostWhite">
+    <Grid Height="600" Width="500" Background="#F6F4F4">
         <Border BorderBrush="DarkGray" Background="White" BorderThickness="1,1,0,0" Margin="75,0,0,0">
             <RichTextBox Name="RichTextBoxMainChatWindow" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" BorderThickness="0" IsReadOnly="True" VerticalAlignment="Top" Height="541">
                 <FlowDocument>
@@ -46,7 +46,7 @@
         </ListBox>
         <Border Margin="98,559,22,20" BorderThickness="0,0,0,1" BorderBrush="DarkGray">
             <TextBox KeyDown="TxtMessage_KeyDown"  x:Name="TxtChatMessage" Focusable="True" Foreground="DimGray" 
-                      HorizontalAlignment="Left" BorderThickness="0" TextWrapping="Wrap" MaxLength="50"
+                      HorizontalAlignment="Left" BorderThickness="0" TextWrapping="Wrap" MaxLength="60"
                      VerticalContentAlignment="Center" VerticalAlignment="Top" Width="380" Height="21" Margin="0" RenderTransformOrigin="0.511,0.176"/>
         </Border>
         <TextBlock IsHitTestVisible="False" FontSize="12" Text="Enter your Message here" HorizontalAlignment="Center"  Foreground="Gray" Margin="100,561,171,20" Width="229" >
@@ -61,7 +61,7 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <fa:ImageAwesome Name="ImgLogout" MouseDown="ImgLogout_MouseDown" Cursor="Hand" ToolTip="Logout" Icon="SignOut" Margin="41,567,429,7" RenderTransformOrigin="0.5,0.5" Foreground="IndianRed">
+        <fa:ImageAwesome Name="ImgLogout" MouseDown="ImgLogout_MouseDown" Cursor="Hand" ToolTip="Logout" Icon="SignOut" Margin="41,567,429,7" RenderTransformOrigin="0.5,0.5" Foreground="SteelBlue">
             <fa:ImageAwesome.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -71,6 +71,6 @@
                 </TransformGroup>
             </fa:ImageAwesome.RenderTransform>
         </fa:ImageAwesome>
-        <fa:ImageAwesome x:Name="ImgBugReport" MouseDown="ImgBugReport_MouseDown" Cursor="Hand" ToolTip="Report a Bug" Icon="Bug" Margin="4,566,465,7" RenderTransformOrigin="0.803,-0.355" Foreground="MediumPurple" Opacity="0.9"/>
+        <fa:ImageAwesome x:Name="ImgBugReport" MouseDown="ImgBugReport_MouseDown" Cursor="Hand" ToolTip="Report a Bug" Icon="Bug" Margin="6,566,466,7" RenderTransformOrigin="0.803,-0.355" Foreground="SlateGray"/>
     </Grid>
 </Window>

@@ -11,8 +11,8 @@
                       SizeToContent="WidthAndHeight" Background="LightGray"
                       MouseDown="Window_MouseDown" FocusManager.FocusedElement="{Binding ElementName=TxtBugReportMessage}">
     <Grid Width="312" Height="151" Background="WhiteSmoke">
-        <Border Margin="0,0,0,36" BorderBrush="DarkGray" BorderThickness="0,0,0,1">
-            <TextBox Name="TxtBugReportMessage" Background="White" Foreground="DimGray" CaretBrush="DimGray" BorderThickness="0" Margin="0"></TextBox>
+        <Border Margin="0,0,0,35" BorderBrush="DarkGray" BorderThickness="0,0,0,1">
+            <TextBox Name="TxtBugReportMessage" Background="White" Foreground="DimGray" CaretBrush="DimGray" BorderThickness="0"/>
         </Border>
         <TextBlock IsHitTestVisible="False" FontSize="15" Text="Please Describe the Bug in detail" HorizontalAlignment="Center"  Foreground="Gray" Width="216" Margin="48,47,48,83">
             <TextBlock.Style>
@@ -26,7 +26,7 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Grid Background="GhostWhite" HorizontalAlignment="Left" Height="35" Margin="0,115,0,0" VerticalAlignment="Top" Width="312">
+        <Grid Background="#F6F4F4" HorizontalAlignment="Left" Height="36" Margin="0,116,0,0" VerticalAlignment="Top" Width="312">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="86*"/>
                 <ColumnDefinition Width="227*"/>
@@ -45,8 +45,7 @@
                     </Style>
                 </fa:ImageAwesome.Style>
             </fa:ImageAwesome>
-            <Label Grid.Column="0" Name="LblVersion" Visibility="Visible" Margin="1,13,45,1" HorizontalAlignment="Center" FontSize="10" Foreground="DimGray" Width="40"/>
-            <fa:ImageAwesome Name="SpinnerCog1" Visibility="Collapsed" Icon="Cog" Foreground="DimGray" Spin="True" SpinDuration="2" Grid.Column="1" Margin="162,5,35,5"></fa:ImageAwesome>
+            <fa:ImageAwesome Name="SpinnerCog1" Visibility="Collapsed" Icon="Spinner" Foreground="DimGray" Spin="True" SpinDuration="2" Grid.Column="1" Margin="162,5,35,5"></fa:ImageAwesome>
         </Grid>
     </Grid>
 </Window>

@@ -3,3 +3,4 @@ C:\Users\Oscar\source\repos\OChat\OChat.Core\bin\x64\Release\OChat.Core.pdb
 C:\Users\Oscar\source\repos\OChat\OChat.Core\obj\x64\Release\OChat.Core.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\source\repos\OChat\OChat.Core\obj\x64\Release\OChat.Core.dll
 C:\Users\Oscar\source\repos\OChat\OChat.Core\obj\x64\Release\OChat.Core.pdb
+C:\Users\Oscar\source\repos\OChat\OChat.Core\obj\x64\Release\OChat.Core.csprojAssemblyReference.cache
