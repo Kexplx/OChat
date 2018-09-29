@@ -147,9 +147,9 @@ namespace OChat.ClientUI1
             _clientServerMiddleman.DisconnectFromChatAndServer(_username);
         }
 
-        private void TxtMessage_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TxtMessage_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == System.Windows.Input.Key.Return)
+            if (e.Key == Key.Return && TxtChatMessage.Text != "")
             {
                 var message = new ChatMessage { Content = TxtChatMessage.Text, Timestamp = DateTime.Now, Username = _username };
 
