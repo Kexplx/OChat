@@ -11,7 +11,7 @@ namespace OChat.Core.Communication.ServerSide
     {
         private readonly object _monitor = new object();
         private readonly OLogger _logger = new OLogger("OChat.log", true);
-        private readonly IList<ClientManager> _clientManagersConnectedToChat = new List<ClientManager>();
+        private readonly IList<ClientHandler> _clientHandlers = new List<ClientHandler>();
 
         public void StartListeningForIncomingTcpRequests(int port)
         {
@@ -26,17 +26,17 @@ namespace OChat.Core.Communication.ServerSide
                 var client = tcpListener.AcceptTcpClient();
                 _logger.Info("Client connected with IPv4 Adress: " + ((IPEndPoint)client.Client.RemoteEndPoint).Address, typeof(Server));
 
-                var clientManager = new ClientManager(client, this);
+                var clientManager = new ClientHandler(client, this);
 
                 new Thread(clientManager.ReadAndEvaluateClientStream).Start();
             }
         }
 
-        public void SendMessageToAllClientManagers(string message, ClientManager exludetClientManager = null)
+        public void SendMessageToAllClients(string message, ClientHandler exludetClientManager = null)
         {
             lock (_monitor)
             {
-                foreach (var clientManager in _clientManagersConnectedToChat)
+                foreach (var clientManager in _clientHandlers)
                 {
                     if (clientManager != exludetClientManager)
                     {
@@ -46,19 +46,19 @@ namespace OChat.Core.Communication.ServerSide
             }
         }
 
-        public void AddClientManagerToList(ClientManager clientManager)
+        public void AddClientHandlerToList(ClientHandler clientManager)
         {
             lock (_monitor)
             {
-                _clientManagersConnectedToChat.Add(clientManager);
+                _clientHandlers.Add(clientManager);
             }
         }
 
-        public void RemoveClientManagerFromList(ClientManager clientManager)
+        public void RemoveClientHandlerFromList(ClientHandler clientManager)
         {
             lock (_monitor)
             {
-                _clientManagersConnectedToChat.Remove(clientManager);
+                _clientHandlers.Remove(clientManager);
 
                 _logger.Info("Client disconnected with IPv4 Adress: " + ((IPEndPoint)clientManager.TcpClient.Client.RemoteEndPoint).Address, typeof(Server));
 
@@ -69,7 +69,7 @@ namespace OChat.Core.Communication.ServerSide
         {
             lock (_monitor)
             {
-                return _clientManagersConnectedToChat.Select(x => x.Username).ToList();
+                return _clientHandlers.Select(x => x.Username).ToList();
             }
         }
 
@@ -77,7 +77,7 @@ namespace OChat.Core.Communication.ServerSide
         {
             lock (_monitor)
             {
-                foreach (var item in _clientManagersConnectedToChat)
+                foreach (var item in _clientHandlers)
                 {
                     if (item.Username == username)
                     {

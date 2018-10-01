@@ -38,13 +38,14 @@ namespace OChat.ClientUI1
             var usersNames = clientToServerMiddleman.GetCurrentUsers()
                                                     .Select(x => new UserView { Name = x, Color = GetNextBrushFromColorCollection() })
                                                     .OrderBy(x => x.Name)
-                                                    .ToList();
+                                                                         .ToList();
+
             usersNames.Where(x => x.Name == username).First().FontWeight = "Bold";
 
             ListBoxUsers.ItemsSource = usersNames.OrderBy(x => x.Name)
                                                  .OrderByDescending(x => x.Name == _username).ToList();
 
-            new Thread(() => clientToServerMiddleman.GetNewMessagesAndCallbackOnSpecifiedDelegates(ReceiveIncomingChatMessage,
+            new Thread(() => clientToServerMiddleman.ReceiveFromServerAndCallbackOnSpecifiedDelegates(ReceiveIncomingChatMessage,
                                                                                                    ReceiveUserConnectedToChatNotification,
                                                                                                    ReceiveUserDisconnectedFromChatNotification))
                                                     .Start();
@@ -156,7 +157,7 @@ namespace OChat.ClientUI1
                 ReceiveIncomingChatMessage(message);
                 TxtChatMessage.Text = string.Empty;
 
-                _clientServerMiddleman.SendNewChatMessage(message);
+                _clientServerMiddleman.SendChatMessage(message);
             }
         }
     }

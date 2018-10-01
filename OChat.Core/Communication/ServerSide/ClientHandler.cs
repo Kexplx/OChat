@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace OChat.Core.Communication.ServerSide
 {
-    public class ClientManager
+    public class ClientHandler
     {
         private readonly BinaryReader _reader;
         private readonly BinaryWriter _writer;
@@ -18,7 +18,7 @@ namespace OChat.Core.Communication.ServerSide
             set;
         }
 
-        public ClientManager(TcpClient tcpClient, Server server)
+        public ClientHandler(TcpClient tcpClient, Server server)
         {
             TcpClient = tcpClient ?? throw new System.ArgumentNullException(nameof(tcpClient));
 
@@ -59,8 +59,8 @@ namespace OChat.Core.Communication.ServerSide
 
                     response = MessagePrefixes.Server_USER_CONNECTED_TO_CHAT + message.Substring(MessagePrefixes.PREFIX_LENGTH);
                     Username = message.Substring(MessagePrefixes.PREFIX_LENGTH);
-                    _server.SendMessageToAllClientManagers(response, this);
-                    _server.AddClientManagerToList(this);
+                    _server.SendMessageToAllClients(response, this);
+                    _server.AddClientHandlerToList(this);
                     break;
 
                 case MessagePrefixes.CLIENT_GET_CURRENT_USERS:
@@ -73,16 +73,16 @@ namespace OChat.Core.Communication.ServerSide
                 case MessagePrefixes.CLIENT_NEW_CHAT_MESSAGE:
 
                     response = MessagePrefixes.SERVER_NEW_CHAT_MESSAGE + message.Substring(MessagePrefixes.PREFIX_LENGTH);
-                    _server.SendMessageToAllClientManagers(response, this);
+                    _server.SendMessageToAllClients(response, this);
                     break;
 
                 case MessagePrefixes.CLIENT_USER_DISCONNECTED_FROM_CHAT:
 
                     readingThread.Abort();
-                    _server.RemoveClientManagerFromList(this);
+                    _server.RemoveClientHandlerFromList(this);
 
                     response = MessagePrefixes.SERVER_USER_DISCONNECTED_FROM_CHAT + message.Substring(MessagePrefixes.PREFIX_LENGTH);
-                    _server.SendMessageToAllClientManagers(response);
+                    _server.SendMessageToAllClients(response);
                     break;
             }
         }

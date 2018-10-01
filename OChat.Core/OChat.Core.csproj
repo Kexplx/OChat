@@ -68,7 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Communication\MessagePrefixes.cs" />
     <Compile Include="Communication\ServerSide\Server.cs" />
-    <Compile Include="Communication\ServerSide\ClientManager.cs" />
+    <Compile Include="Communication\ServerSide\ClientHandler.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

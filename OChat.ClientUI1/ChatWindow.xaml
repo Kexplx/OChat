@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        Title="OChat - Join the Fun" SizeToContent="WidthAndHeight" Closing="Window_Closing" ResizeMode="CanMinimize" FocusManager.FocusedElement="{Binding ElementName=TxtChatMessage}">
+        Title="OChat - Join the Fun" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Closing="Window_Closing" ResizeMode="CanMinimize" FocusManager.FocusedElement="{Binding ElementName=TxtChatMessage}">
     <Window.Resources>
         <Style x:Key="ListBoxtemStyleNoHighlighting" TargetType="ListBoxItem">
             <Setter Property="Template">

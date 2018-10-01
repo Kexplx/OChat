@@ -68,24 +68,24 @@ namespace OChat.Core.Communication.ClientSide
             }
         }
 
-        public void GetNewMessagesAndCallbackOnSpecifiedDelegates(ChatMessageReceiverDelegate d, UserConnectedToChatNotificationReceiverDelegate d1, UserDisconnectedFromChatNotificationReceiverDelegate d2)
+        public void ReceiveFromServerAndCallbackOnSpecifiedDelegates(ChatMessageReceiverDelegate chatMessageReceiver, UserConnectedToChatNotificationReceiverDelegate userconnectedToChatReceiver, UserDisconnectedFromChatNotificationReceiverDelegate userDisconnectedFromChatReceiver)
         {
             try
             {
                 var serverResponse = _reader.ReadString();
 
-                new Thread(() => { GetNewMessagesAndCallbackOnSpecifiedDelegates(d, d1, d2); }).Start();
+                new Thread(() => { ReceiveFromServerAndCallbackOnSpecifiedDelegates(chatMessageReceiver, userconnectedToChatReceiver, userDisconnectedFromChatReceiver); }).Start();
 
                 switch (serverResponse.Substring(0, MessagePrefixes.PREFIX_LENGTH))
                 {
                     case MessagePrefixes.Server_USER_CONNECTED_TO_CHAT:
                         var connectedUser = serverResponse.Substring(MessagePrefixes.PREFIX_LENGTH).Trim();
-                        d1(connectedUser);
+                        userconnectedToChatReceiver(connectedUser);
                         break;
 
                     case MessagePrefixes.SERVER_USER_DISCONNECTED_FROM_CHAT:
                         var disconnectedUser = serverResponse.Substring(MessagePrefixes.PREFIX_LENGTH).Trim();
-                        d2(disconnectedUser);
+                        userDisconnectedFromChatReceiver(disconnectedUser);
                         break;
 
                     case MessagePrefixes.SERVER_NEW_CHAT_MESSAGE:
@@ -97,7 +97,7 @@ namespace OChat.Core.Communication.ClientSide
                                 MessagePrefixes.PREFIX_LENGTH + MessagePrefixes.USERNAME_LENGTH),
                             Timestamp = DateTime.Now
                         };
-                        d(chatMessage);
+                        chatMessageReceiver(chatMessage);
                         break;
                 }
             }
@@ -122,7 +122,7 @@ namespace OChat.Core.Communication.ClientSide
             return usernames;
         }
 
-        public void SendNewChatMessage(ChatMessage chatMessage)
+        public void SendChatMessage(ChatMessage chatMessage)
         {
             _writer.Write(MessagePrefixes.CLIENT_NEW_CHAT_MESSAGE + chatMessage.Username.PadRight(10) + chatMessage.Content);
         }

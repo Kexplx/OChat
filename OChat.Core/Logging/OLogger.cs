@@ -160,7 +160,11 @@ namespace OChat.Core.Logging
                 }
 
                 File.AppendAllText(_path, logInformation.Message + Environment.NewLine);
-                WriteToConsole(logInformation);
+
+                if (LogToConsoleEnabled)
+                {
+                    WriteToConsole(logInformation);
+                }
 
                 return logInformation;
             }
@@ -172,11 +176,6 @@ namespace OChat.Core.Logging
         /// <param name="message"></param>
         public void WriteToConsole(LogInformation message)
         {
-            if (!LogToConsoleEnabled)
-            {
-                return;
-            }
-
             switch (message.Type)
             {
                 case LogMessageType.INFO:

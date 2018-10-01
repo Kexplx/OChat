@@ -62,7 +62,7 @@ namespace ConsoleApp1
                     for (int j = 0; j < _sentences.Count; j++)
                     {
                         Thread.Sleep(new Random().Next(2000, 5000));
-                        clientMiddleman.SendNewChatMessage(new OChat.Core.ClientSide.Models.ChatMessage { Username = username, Content = _sentences[j] });
+                        clientMiddleman.SendChatMessage(new OChat.Core.ClientSide.Models.ChatMessage { Username = username, Content = _sentences[j] });
                     }
 
                     clientMiddleman.DisconnectFromChatAndServer(username);
